@@ -1,0 +1,64 @@
+Gianluca Croso, Heather Han, Nitin Kumar, Eric Walker
+EN.600.439 Computational Genomics
+Final Project: README
+
+How to run the code:
+Encode (compress) for variant:  python3 jam.py e v samfile.sam refgenome.fa
+Decode variant compressed file: python3 jam.py d v jamfile.vjam refgenome.fa
+Encode (compress) for peak:     python3 jam.py e p samfile.sam refgenome.fa
+Decode peak compressed file:    python3 jam.py d p jamfile.pjam refgenome.fa
+
+
+To reproduce our results:
+The ex1 files for fast testing (small sam file and reference genome),
+as well as the simulation data and ecoli reference genome used are provided
+with the sumbission. They are, respectively:
+ex1.sam
+ex1.fa
+sim1.sam
+sim1.fa
+Ecoli1.fa
+
+The first 4 files are for fast testing. The full E. Coli genome and the other
+files linked below take a significantly longer time to run.
+
+The drosophila genome is the dm6 reference genome available at
+support.illumina.com/sequencing/sequencing_software/igenome.html
+
+The Ecoli genome was also obtained at the same website, but we had
+to alter the sequence title to match the sequence name in our sam
+dataset, and that is why we provide the E. Coli genome here.
+
+The Ecoli read-alignment file is available at:
+ftp://webdata:webdata@ussd-ftp.illumina.com/Data/SequencingRuns/DH10B/MiSeq_Ecoli_DH10B_110721_PF.bam
+
+The Drosophila read-alignment file is a ChIP-Seq experiment from the
+ENCODE project, and is available at:
+https://www.encodeproject.org/files/ENCFF013TIL/@@download/ENCFF013TIL.bam
+
+Before using the ENCODE file, please run the clean.py script, that
+removes reads with chromosome names that are not present in the dm6 reference
+genome we use.
+
+The scripts jam_variants.bash and jam_peaks.bash contain all the commands 
+necessary to run our compression and decompression followed by samtools variant
+calling and MACS peak calling respectively. The path to the downstream programs
+might have to be adjusted, but assuming the same version of the programs are used,
+the running the bash script should run the entire pipeline. Different versions
+of samtools might require small tweaks in the commands specifically to report
+give it the name of the output files. The bam_peaks.bash and bam_variants.bash
+scripts contain commands to run only the downstream analysis on the original
+files.
+
+Sources:
+In both decode files, var_decode.py and peak_decode.py, we use a rotate
+left function from the following website in order to aid with the creation
+of our bitstring:
+http://www.falatic.com/index.php/108/python-and-bitwise-rotation
+
+Additionally, the file fasta.py, which generates the fai file and searches
+for the genome substring corresponding to each read is taken from code
+provided by Dr. Langmead at the following location:
+https://github.com/BenLangmead/comp-genomics-class/blob/master/
+notebooks/FASTA.ipynb
+ 
