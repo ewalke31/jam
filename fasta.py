@@ -1,6 +1,7 @@
 # Gianluca Croso, Heather Han, Nitin Kumar, Eric Walker
 # EN.600.439 Computational Genomics
 # Final Project: fasta.py
+
 # Using Ben Langmead's code from:
 # https://github.com/BenLangmead/comp-genomics-class/blob/master/notebooks/FASTA.ipynb
 
