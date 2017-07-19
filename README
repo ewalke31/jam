@@ -8,7 +8,6 @@ Decode variant compressed file: python3 jam.py d v jamfile.vjam refgenome.fa
 Encode (compress) for peak:     python3 jam.py e p samfile.sam refgenome.fa
 Decode peak compressed file:    python3 jam.py d p jamfile.pjam refgenome.fa
 
-
 To reproduce our results:
 The ex1 files for fast testing (small sam file and reference genome),
 as well as the simulation data and ecoli reference genome used are provided
